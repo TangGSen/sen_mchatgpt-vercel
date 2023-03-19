@@ -27,7 +27,7 @@ async function sendChatGPTMessage(ask: string) {
         response.data = await sendMessage(ask)
     } catch (err: any) {
         console.warn(err)
-        response = {ask, status: 400, success: false, message: `${err?.message}`}
+        response = {ask, status: 405, success: false, message: `${err?.message}`}
     }
     return response;
 }
