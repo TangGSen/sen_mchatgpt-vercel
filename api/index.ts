@@ -5,7 +5,7 @@ import {ChatGPTAPI} from "chatgpt";
 async function sendMessage(message: string) {
     let token = `${process?.env?.SESSION_TOKEN}`;
     if (`${token}`.trim().length <= 1) {
-        throw new Error('Env "SESSION_TOKEN" Not Found');
+        throw new Error('Env "SESSION_TOKEN" Not Found 222');
     }
     let api = new ChatGPTAPI({sessionToken: token!});
 
@@ -27,7 +27,7 @@ async function sendChatGPTMessage(ask: string) {
         response.data = await sendMessage(ask)
     } catch (err: any) {
         console.warn(err)
-        response = {ask, status: 405, success: false, message: `${err?.message}`}
+        response = {ask, status: 401, success: false, message: `${err?.message}`}
     }
     return response;
 }
